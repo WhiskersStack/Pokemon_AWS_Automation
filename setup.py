@@ -5,7 +5,7 @@ import venv
 
 
 def create_venv(venv_dir="venv"):
-    print("🔧 Creating virtual environment...")
+    print("Creating virtual environment...")
     venv.create(venv_dir, with_pip=True)
 
 
