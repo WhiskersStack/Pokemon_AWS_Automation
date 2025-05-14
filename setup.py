@@ -17,8 +17,7 @@ def install_requirements(venv_dir="venv"):
 
 
 def run_main_script():
-    subprocess.check_call([sys.executable, "main.py"])
-
+    subprocess.run(["python3", "main.py"])
 
 def main():
     create_venv()
