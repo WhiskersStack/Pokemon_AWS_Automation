@@ -10,13 +10,13 @@ def create_venv(venv_dir="venv"):
 
 
 def install_requirements(venv_dir="venv"):
-    print("📦 Installing packages from requirements.txt...")
+    print("Installing packages from requirements.txt...")
     pip_path = os.path.join(venv_dir, "Scripts" if os.name == "nt" else "bin", "pip")
     subprocess.check_call([pip_path, "install", "-r", "requirements.txt"])
 
 
 def run_main_script(venv_dir="venv", entry="ec2_init.py"):
-    print("🚀 Running your app...")
+    print("Running your app...")
     python_path = os.path.join(
         venv_dir, "Scripts" if os.name == "nt" else "bin", "python"
     )
@@ -27,7 +27,7 @@ def main():
     create_venv()
     install_requirements()
     run_main_script()
-    print("\n✅ All done!")
+    print("\nAll done!")
 
 
 if __name__ == "__main__":
