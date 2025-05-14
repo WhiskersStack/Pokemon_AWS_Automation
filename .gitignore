@@ -1,3 +1,5 @@
 # Ignore venv
 venv/
 .vscode/
+MyKeyPair.pem
+public_ip.txt

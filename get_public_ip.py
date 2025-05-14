@@ -20,7 +20,7 @@ def get_public_ip(ec2, instance_id):
     print(f"Public IP address saved to public_ip.txt")
 
     print("\nTo SSH into the instance, use the following command :\n")
-    print(f"ssh -i MyKeyPair.pem ubuntu@{public_ip}")
+    print(f"ssh -i MyKeyPair.pem ubuntu@{public_ip}\n")
 
 
 if __name__ == "__main__":
