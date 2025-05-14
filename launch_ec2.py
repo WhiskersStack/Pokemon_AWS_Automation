@@ -5,6 +5,13 @@ from botocore.exceptions import ClientError
 
 def launch_ec2_instance(ec2):
     # Launch EC2 instance
+
+    user_data_script = """#!/bin/bash
+    git clone https://github.com/WhiskersStack/PokemonGameV2.git
+    sleep 10
+    echo 'if [ -n "$SSH_CONNECTION" ]; then python3 ~/main.py; fi' >> ~/.bashrc
+    """
+
     response = ec2.run_instances(
         # Amazon Linux 2 AMI (check region-specific AMIs)
         ImageId="ami-075686beab831bb7f",
@@ -12,6 +19,7 @@ def launch_ec2_instance(ec2):
         KeyName="MyKeyPair",
         MinCount=1,
         MaxCount=1,
+        UserData=user_data_script,
         TagSpecifications=[
             {
                 "ResourceType": "instance",
