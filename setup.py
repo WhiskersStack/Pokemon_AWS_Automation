@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 import venv
-from ec2_init import main
+import subprocess
 
 
 def create_venv(venv_dir="venv"):
@@ -17,7 +17,7 @@ def install_requirements(venv_dir="venv"):
 
 
 def run_main_script():
-    main()  # Call the main function from ec2_init.py
+    subprocess.check_call([sys.executable, "main.py"])
 
 
 def main():
