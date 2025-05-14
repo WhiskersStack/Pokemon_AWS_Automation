@@ -4,7 +4,14 @@ import boto3
 def create_key_pair(ec2):
     # Create key pair
     key_pair_name = "MyKeyPair"
-    response = ec2.create_key_pair(KeyName=key_pair_name)
+
+    try:
+        response = ec2.create_key_pair(KeyName=key_pair_name)
+    except Exception as e:
+        print("\n\n\n ********************************** \n\n\n")
+        print(f"Error creating key pair: {e}")
+        print("\n\n\n ********************************** \n\n\n")
+        return
 
     # Save private key to a .pem file
     with open(f"{key_pair_name}.pem", "w") as file:
