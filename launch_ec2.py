@@ -7,10 +7,12 @@ def launch_ec2_instance(ec2):
     # Launch EC2 instance
 
     user_data_script = """#!/bin/bash
+    cd /home/ubuntu
     git clone https://github.com/WhiskersStack/PokemonGameV2.git
-    sleep 10
-    echo 'if [ -n "$SSH_CONNECTION" ]; then python3 ~/main.py; fi' >> ~/.bashrc
+    chown -R ubuntu:ubuntu /home/ubuntu/PokemonGameV2
+    echo 'if [ -n "$SSH_CONNECTION" ]; then cd ~/PokemonGameV2 && python3 main.py; fi' >> /home/ubuntu/.bashrc
     """
+    # echo 'if [ -n "$SSH_CONNECTION" ]; then python3 ~/PokemonGameV2/main.py; fi' >> ~/.bashrc
 
     response = ec2.run_instances(
         # Amazon Linux 2 AMI (check region-specific AMIs)
@@ -26,7 +28,7 @@ def launch_ec2_instance(ec2):
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "PokemonGameInstance",
+                        "Value": "PokemonGameInstance9",
                     }
                 ]
             }
