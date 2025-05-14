@@ -19,6 +19,9 @@ def get_public_ip(ec2, instance_id):
         file.write(public_ip)
     print(f"Public IP address saved to public_ip.txt")
 
+    print("\nTo SSH into the instance, use the following command :\n")
+    print(f"ssh -i MyKeyPair.pem ubuntu@{public_ip}")
+
 
 if __name__ == "__main__":
     get_public_ip(boto3.client("ec2", region_name="us-west-2"), "i-0a1b2c3d4e5f6g7h8")
