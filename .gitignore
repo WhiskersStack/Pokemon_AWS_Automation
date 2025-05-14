@@ -1,4 +1,4 @@
-# Ignore venv
+__pycache__/
 venv/
 .vscode/
 MyKeyPair.pem
