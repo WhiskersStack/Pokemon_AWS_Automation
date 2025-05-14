@@ -15,7 +15,7 @@ def install_requirements(venv_dir="venv"):
     subprocess.check_call([pip_path, "install", "-r", "requirements.txt"])
 
 
-def run_main_script(venv_dir="venv", entry="main.py"):
+def run_main_script(venv_dir="venv", entry="ec2_init.py"):
     print("🚀 Running your app...")
     python_path = os.path.join(
         venv_dir, "Scripts" if os.name == "nt" else "bin", "python"
