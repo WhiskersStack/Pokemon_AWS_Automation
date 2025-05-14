@@ -11,23 +11,23 @@ def create_venv(venv_dir="venv"):
 
 def install_requirements(venv_dir="venv"):
     print("📦 Installing packages from requirements.txt...")
-
-    if os.name == "nt":
-        pip_path = os.path.join(venv_dir, "Scripts", "pip.exe")
-    else:
-        pip_path = os.path.join(venv_dir, "bin", "pip")
-
+    pip_path = os.path.join(venv_dir, "Scripts" if os.name == "nt" else "bin", "pip")
     subprocess.check_call([pip_path, "install", "-r", "requirements.txt"])
+
+
+def run_main_script(venv_dir="venv", entry="main.py"):
+    print("🚀 Running your app...")
+    python_path = os.path.join(
+        venv_dir, "Scripts" if os.name == "nt" else "bin", "python"
+    )
+    subprocess.check_call([python_path, entry])
 
 
 def main():
     create_venv()
     install_requirements()
-    print("\n✅ Done!")
-    if os.name == "nt":
-        print("To activate the environment: venv\\Scripts\\activate")
-    else:
-        print("To activate the environment: source venv/bin/activate")
+    run_main_script()
+    print("\n✅ All done!")
 
 
 if __name__ == "__main__":
