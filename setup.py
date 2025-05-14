@@ -17,7 +17,7 @@ def install_requirements(venv_dir="venv"):
 
 
 def run_main_script():
-    subprocess.run(["python3", "main.py"])
+    subprocess.run(["python3", "ec2_init.py"])
 
 def main():
     create_venv()
