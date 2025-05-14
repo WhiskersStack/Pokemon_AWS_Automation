@@ -10,7 +10,7 @@ ec2 = boto3.client("ec2", region_name="us-west-2")
 
 def main():
     # Create a key pair
-    #create_key_pair(ec2)
+    create_key_pair(ec2)
 
     # Launch an EC2 instance & get instance ID
     ids = launch_ec2_instance(ec2)
