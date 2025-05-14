@@ -26,7 +26,7 @@ def launch_ec2_instance(ec2):
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "new-instance",
+                        "Value": "PokemonGameInstance",
                     }
                 ]
             }
